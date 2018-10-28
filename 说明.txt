@@ -1,0 +1,8 @@
+整个脚本运行需要安装python3，下载网址：https://www.python.org/downloads/windows/
+文件夹中的python-3.7.1-webinstall.exe文件是已经下好的python3编译器，支持X86，其他情况请自行下载
+安装的时候把全部能勾选的都勾上
+安装完毕后双击：运行.bat 文件
+等待界面中出现Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)的提示
+然后在浏览器中打开：http://localhost:5000
+或者打开http://127.0.0.1:5000
+即可使用
