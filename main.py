@@ -24,7 +24,7 @@ def get_order():
         date = datetime.datetime.strftime(date, '%m-%d')
         for r in range(2, 32):
             product = sheet.cell(r, c).value
-            if isinstance(product, float):
+            if product==0:
                 continue
             total.append([r - 1, date, product])
     total = pd.DataFrame(total, columns=['rank', 'date', 'product'])
@@ -46,7 +46,7 @@ def get_order():
             start = ranks[i] - 1
             end = ranks[i + 1] - 1
             score = sum(weight[min([start, end]):max([start, end])])
-            score = score if end > start else -score
+            score = score if end < start else -score
             scores.append(score)
             # print(r-1,date,len(product))
         all_product_diff.append([product, scores])
