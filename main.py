@@ -80,7 +80,8 @@ def update_num():
         with open('resource/num.pkl','wb') as ff:
             pkl.dump(int(req),ff)
         return redirect(url_for('index'))
-    except:
+    except Exception as e:
+        print('update_num', e)
         return redirect(url_for('index',warn='请输入整数！'))
 
 @app.route('/update_location', methods=['GET', 'POST'])
@@ -99,7 +100,8 @@ def update_weight():
         with open('resource/order.pkl', 'wb') as ff:
             pkl.dump(weights, ff)
         return redirect(url_for('index'))
-    except:
+    except Exception as e:
+        print('update_weight',e)
         return redirect(url_for('index', warn='请输入数字'))
 
 
@@ -119,7 +121,8 @@ def index():
         return render_template('home.html', headers=headers, weight=weight, ff=current, msg=msg,warn=warn,f_path=f_path,
                                char_name='Top%d商品变化'%num, legend=legend, xAxis=xAxis, lines=lines,chart=True,
                                char_name2='Top%d商品排名'%num, legend2=legend2, xAxis2=xAxis, lines2=lines2)
-    except:
+    except Exception as e:
+        print('get_order', e)
         warn = '文件路径有误或者文件格式不正确,参考文件：'+f_path
         return render_template('home.html', headers=headers, weight=weight, ff=current, msg=msg,warn=warn,f_path=f_path)
 
